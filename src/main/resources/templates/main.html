@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Witaj.</h1>
+
+<h2>Twoje top 3 gatunki muzyki to:</h2>
+
+<ul th:each="favoriteGenere : ${favoriteGeneres}">
+    <li  th:text="${favoriteGenere.name} + ' (' + ${favoriteGenere.count}+ ')'"></li>
+    <ul th:each="artist : ${favoriteGenere.artists}">
+       <li th:text="${artist}" ></li>
+    </ul>
+</ul>
+
+
+<h2>Rekomendacje dla Ciebie:</h2>
+
+<ul th:each="recommendation : ${recommendations}">
+    <li  th:text="${recommendation.artist} + ' - ' + ${recommendation.title}"></li>
+</ul>
+
+</body>
+</html>
